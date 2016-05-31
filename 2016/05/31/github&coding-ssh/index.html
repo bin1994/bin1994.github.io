@@ -13,11 +13,11 @@
 
     <title>
         
-          Welcome to Bin Blog - Xiaobin的博客 | Xiaobin&#39;s Blog
+          github/coding ssh连接 及出现Permission denied(publicKey)问题解决 - Xiaobin的博客 | Xiaobin&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://bin1994.github.io/2016/05/26/hello-blog/">
+    <link rel="canonical" href="http://bin1994.github.io/2016/05/31/github&amp;coding-ssh/">
 
     <!-- Bootstrap Core CSS -->
     <!--<link rel="stylesheet" href="/css/bootstrap.min.css">-->
@@ -165,14 +165,14 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                          <a class="tag" href="/tags/#起程" title="起程">起程</a>
+                          <a class="tag" href="/tags/#github" title="github">github</a>
                         
                     </div>
-                    <h1>Welcome to Bin Blog</h1>
-                    <h2 class="subheading"> &quot;Hello World, Hello Blog&quot;</h2>
+                    <h1>github/coding ssh连接 及出现Permission denied(publicKey)问题解决</h1>
+                    <h2 class="subheading"> &quot;github coding双线部署 Step one&quot;</h2>
                     <span class="meta">
                         Posted by Bin on
-                        2016-05-26
+                        2016-05-31
                     </span>
                 </div>
             </div>
@@ -192,16 +192,41 @@
                 post-container">
 
                 <blockquote>
-<p>“Yeah It’s on. ”</p>
+<p>SSH 密钥对可以让您方便的登录到 SSH 服务器，而无需输入密码。由于您无需发送您的密码到网络中，SSH 密钥对被认为是更加安全的方式。再加上使用密码短语 (passphrase) 的使用，安全性会更上一层楼。</p>
 </blockquote>
-<p>欢迎访问我的第一篇博客，目前博客搭建在github上，发现访问速度有点慢，着手同步到国内，目前计划同步到coding.</p>
-<h2 id="接下来的计划"><a href="#接下来的计划" class="headerlink" title="接下来的计划"></a>接下来的计划</h2><h3 id="1、更换主题"><a href="#1、更换主题" class="headerlink" title="1、更换主题"></a>1、更换主题</h3><p>目前默认，打算换个漂亮点的</p>
-<h3 id="2、同步到coding"><a href="#2、同步到coding" class="headerlink" title="2、同步到coding"></a>2、同步到coding</h3><p>将githubpage同步到coding Page</p>
-<h3 id="3、增加功能"><a href="#3、增加功能" class="headerlink" title="3、增加功能"></a>3、增加功能</h3><p>增加诸如评论（目前考虑多说插件），分享，rss等</p>
-<h3 id="4、申请域名"><a href="#4、申请域名" class="headerlink" title="4、申请域名"></a>4、申请域名</h3><p>申请独立域名，备案等等</p>
-<h3 id="5、哦-还没有第五"><a href="#5、哦-还没有第五" class="headerlink" title="5、哦 还没有第五"></a>5、哦 还没有第五</h3><p>我会在博客里面更新进度</p>
+<p>使用ssh连接相对与https方式更加安全，当然大多数人选择ssh模式除了安全性原因外最主要的还是因为不用每次部署都使用密码，减少操作。</p>
 <hr>
-<h2 id="关于我？"><a href="#关于我？" class="headerlink" title="关于我？"></a>关于我？</h2><p>即将滚出大学的前端技术渣渣一枚，打算空余时间写写东西，做些好玩的，目前打算做一个可能只有6个人使用的蜀黍晚餐管理软件，至于具体的需求策划？sorry， 需求们还在准备毕业答辩。</p>
+<p>具体步骤：</p>
+<h6 id="1-打开Git-Bash"><a href="#1-打开Git-Bash" class="headerlink" title="1. 打开Git Bash"></a>1. 打开Git Bash</h6><p>   没有安装的自行安装，安装后对着屏幕右键就会出现Git Bash选项</p>
+<h6 id="2-输入以下命令，邮箱换成自己的邮箱"><a href="#2-输入以下命令，邮箱换成自己的邮箱" class="headerlink" title="2. 输入以下命令，邮箱换成自己的邮箱"></a>2. 输入以下命令，邮箱换成自己的邮箱</h6><pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+# Creates a new ssh key, using the provided email as a label
+# Generating public/private rsa key pair.
+</code></pre><h6 id="3-首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填-可以一路enter"><a href="#3-首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填-可以一路enter" class="headerlink" title="3. 首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填 可以一路enter"></a>3. 首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填 可以一路enter</h6><p><img src="http://7xuvbm.com1.z0.glb.clouddn.com/Hexo/source/post_img_temp/generating%20ssh.jpg" alt="创建新的ssh"></p>
+<h6 id="4-将生成好的ssh添加到github-coding"><a href="#4-将生成好的ssh添加到github-coding" class="headerlink" title="4. 将生成好的ssh添加到github/coding:"></a>4. 将生成好的ssh添加到github/coding:</h6><p>   首先找到公钥文件id_rsa.pub，默认目录为<code>C:/Users/[username]/.ssh</code>，用文本编辑器打开并复制（一般的代码编辑器，IDE都能打开）<br>    然后打开github网站，可以将公钥添加为项目公钥也可以添加为账户公钥</p>
+<p>添加为项目公钥步骤：进入项目点击Settings-&gt;Deploy keys-&gt;Add Deploy key.<br>具体可以参考:<a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">Generating a new SSH key and adding it to the ssh-agent</a><br><img src="http://7xuvbm.com1.z0.glb.clouddn.com/Hexo/source/post_img_temp/add-deploy.jpg" alt="添加github项目部署公钥"></p>
+<blockquote>
+<p>添加github项目部署公钥<br>title可以随意填，也可以不填</p>
+</blockquote>
+<p>添加为账户公钥步骤：点击右上角头像-&gt;Settings-&gt;SSH and GPG keys-&gt;New SSH key-&gt;Add SSH key<br>具体可以参考:<a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank" rel="external">Adding a new SSH key to your GitHub account</a></p>
+<h6 id="5-最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了："><a href="#5-最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了：" class="headerlink" title="5. 最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了："></a>5. 最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了：</h6><pre><code>ssh -T git@github.com
+</code></pre><p>成功会显示：</p>
+<pre><code>Hi username! You&apos;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre><h6 id="6-到这里就要恭喜你了，ssh-key已经成功创建并通过测试"><a href="#6-到这里就要恭喜你了，ssh-key已经成功创建并通过测试" class="headerlink" title="6. 到这里就要恭喜你了，ssh key已经成功创建并通过测试"></a>6. 到这里就要恭喜你了，ssh key已经成功创建并通过测试</h6><p>至于coding的设置，你可以直接从第4步开始，使用之前创建好的ssh key，然后使用命令完成测试：</p>
+<pre><code>ssh -T git@gitcafe.net
+</code></pre><p>具体可以参考<a href="https://coding.net/help/doc/account/ssh-key.html#section-1" target="_blank" rel="external">coding-SSH公钥配置</a></p>
+<hr>
+<p>绝大多数情况下使用上面的步骤是没有问题的，命途多舛的我最初在命令行验证的时候出现了这样的错误：</p>
+<pre><code>Permission denied(publicKey)
+</code></pre><p>后来查阅了很多博客文档，可能的原因是之前在本地生成github的ssh key失效了，导致github服务器验证提交请求失败，进而拒绝提交代码操作。后来通过初始化ssh key解决。<br>一样的右键进入Git Bash，键入命令：<code>ssh-keygen</code><br>发现已存在id_rsa文件，提示是否将其覆盖，输入y,后面的步骤就是一样的了，在写这篇博客的时候，由于需要操作截图，重新查阅github和coding官方文档，整理出上面简明易懂的操作步骤，并且全部操作了一遍没有再遇到任何问题。</p>
+<p>如果有人在配置过程中遇到什么问题，欢迎把问题写在评论区，这样后来人也会少踩一些坑。</p>
+<p>参考文献：</p>
+<ol>
+<li><a href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/" target="_blank" rel="external">Generating a new SSH key and adding it to the ssh-agent</a></li>
+<li><a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/" target="_blank" rel="external">Adding a new SSH key to your GitHub account</a></li>
+<li><a href="https://help.github.com/articles/testing-your-ssh-connection/" target="_blank" rel="external">Testing your SSH connection</a></li>
+<li><a href="https://help.github.com/articles/error-permission-denied-publickey/" target="_blank" rel="external">Error: Permission denied (publickey)</a></li>
+<li><a href="https://coding.net/help/doc/account/ssh-key.html#section-1" target="_blank" rel="external">coding-SSH公钥配置</a></li>
+</ol>
 
 
                 <hr>
@@ -211,14 +236,12 @@
                 </style>
                 <div class="ds-share"
                     style="text-align: right"
-                    data-thread-key="2016/05/26/hello-blog/"
-                    data-title="Welcome to Bin Blog"
-                    data-url="http://bin1994.github.io/2016/05/26/hello-blog/"
-                    data-images="http://bin1994.github.io/2016/05/26/hello-blog///7xuvbm.com1.z0.glb.clouddn.com/Hexo/source/_posts/hello-blog/post-bg-2016.jpg"
+                    data-thread-key="2016/05/31/github&amp;coding-ssh/"
+                    data-title="github/coding ssh连接 及出现Permission denied(publicKey)问题解决"
+                    data-url="http://bin1994.github.io/2016/05/31/github&amp;coding-ssh/"
+                    data-images="http://bin1994.github.io/2016/05/31/github&amp;coding-ssh///7xuvbm.com1.z0.glb.clouddn.com/Hexo/source/_posts/hello-blog/post-bg-2016.jpg"
                     data-content="
-“Yeah It’s on. ”
-
-欢迎访问我的第一篇博客，目前博客搭建在github上，发... | Xiaobin的博客 | Xiaobin&#39;s Blog " >
+SSH 密钥对可以让您方便的登录到 SSH 服务器，而无需输入密码。由于您无需发送您的密码到... | Xiaobin的博客 | Xiaobin&#39;s Blog " >
                     <div class="ds-share-inline">
                       <ul  class="ds-share-icons-16">
                         <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
@@ -236,10 +259,10 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2016/05/31/github&coding-ssh/" data-toggle="tooltip" data-placement="top" title="github/coding ssh连接 及出现Permission denied(publicKey)问题解决">&larr; Previous Post</a>
-                        </li>
                     
+                        <li class="next">
+                            <a href="/2016/05/26/hello-blog/" data-toggle="tooltip" data-placement="top" title="Welcome to Bin Blog">Next Post &rarr;</a>
+                        </li>
                     
                 </ul>
 
@@ -247,9 +270,9 @@
                 <!-- 多说评论框 start -->
                 <div class="comment">
                     <div class="ds-thread"
-                        data-thread-key="2016/05/26/hello-blog/"
-                        data-title="Welcome to Bin Blog"
-                        data-url="http://bin1994.github.io/2016/05/26/hello-blog/" >
+                        data-thread-key="2016/05/31/github&amp;coding-ssh/"
+                        data-title="github/coding ssh连接 及出现Permission denied(publicKey)问题解决"
+                        data-url="http://bin1994.github.io/2016/05/31/github&amp;coding-ssh/" >
                     </div>
                 </div>
                 <!-- 多说评论框 end -->
@@ -275,7 +298,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#起程" title="起程">起程</a>
+                          <a class="tag" href="/tags/#github" title="github">github</a>
                         
                     </div>
                 </section>

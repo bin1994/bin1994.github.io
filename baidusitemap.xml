@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://xiaobin.me/2016/06/01/github&coding-deploy/</loc>
+    <lastmod>2016-06-01T05:53:17.326Z</lastmod>
+    <data>
+        <display>
+        <title>将hexo博客到同时部署到github和coding 实现全球快速访问</title>
+        <pubTime>2016-06-01T04:00:00.000Z</pubTime>
+        
+        <tag>博客搭建</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiaobin.me/2016/05/31/github&coding-ssh/</loc>
+    <lastmod>2016-05-31T09:47:24.472Z</lastmod>
+    <data>
+        <display>
+        <title>github/coding ssh连接 及出现Permission denied(publicKey)问题解决</title>
+        <pubTime>2016-05-31T09:30:00.000Z</pubTime>
+        
+        <tag>github</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://xiaobin.me/2016/05/26/hello-blog/</loc>
+    <lastmod>2016-05-30T15:35:11.658Z</lastmod>
+    <data>
+        <display>
+        <title>Welcome to Bin Blog</title>
+        <pubTime>2016-05-26T15:46:00.000Z</pubTime>
+        
+        <tag>起程</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>

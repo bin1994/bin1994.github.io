@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Xiaobin&#39;s Blog</title>
+  <subtitle>Love Life Love Technology!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://xiaobin.me/"/>
+  <updated>2016-06-02T02:05:46.864Z</updated>
+  <id>http://xiaobin.me/</id>
+  
+  <author>
+    <name>Bin</name>
+    <email>1061015041@qq.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将hexo博客到同时部署到github和coding 实现全球快速访问</title>
+    <link href="http://xiaobin.me/2016/06/01/github-coding-deploy/"/>
+    <id>http://xiaobin.me/2016/06/01/github-coding-deploy/</id>
+    <published>2016-06-01T04:00:00.000Z</published>
+    <updated>2016-06-02T02:05:46.864Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h3&gt;&lt;p&gt;本篇主要讲一下具体应该怎么配置才能实现hexo静态博客github coding双线部署，通过域名解析（万网 DNSpod）实现国内用户访问coding服务器，国外用户访问github服务器。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在上一篇博客讲了github和coding的ssh key的配置以及遇到Permission&lt;br&gt;denied(publicKey)问题的解决方法：&lt;a href=&quot;http://xiaobin.me/2016/05/31/github&amp;amp;coding-ssh/&quot;&gt;github coding双线部署 Step one&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1、配置hexo的-config文件&quot;&gt;&lt;a href=&quot;#1、配置hexo的-config文件&quot; class=&quot;headerlink&quot; title=&quot;1、配置hexo的_config文件&quot;&gt;&lt;/a&gt;1、配置hexo的_config文件&lt;/h3&gt;&lt;p&gt;具体配置格式如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deploy:
+  type: git
+  repo:
+        github: git@github.com:bin1994/bin1994.github.io.git,master
+        coding: git@git.coding.net:tony1994/tony1994.git,coding-pages
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样在执行&lt;code&gt;hexo deploy&lt;/code&gt;命令时就会同时部署到github和coding，由于之前已经配置了ssh，所以这里并不需要输密码 非常方便。&lt;/p&gt;
+&lt;h3 id=&quot;2、绑定自己的域名并进行域名解析的配置&quot;&gt;&lt;a href=&quot;#2、绑定自己的域名并进行域名解析的配置&quot; class=&quot;headerlink&quot; title=&quot;2、绑定自己的域名并进行域名解析的配置&quot;&gt;&lt;/a&gt;2、绑定自己的域名并进行域名解析的配置&lt;/h3&gt;&lt;p&gt;我的域名是从阿里云的万网购买的，大家也可以去&lt;a href=&quot;https://sg.godaddy.com/zh/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GoDaddy&lt;/a&gt;（音译名：狗爹）口碑也不错。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;原本是想买个&lt;code&gt;.com&lt;/code&gt;的域名，但是试了几个都被别人注册了，后来就选择&lt;code&gt;.me&lt;/code&gt;后缀来作为自己的新域名。&lt;code&gt;.me&lt;/code&gt;是新的国际顶级域名，用来作为个人网站感觉还是挺合适的。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;首先是域名的购买 以万网为例：&lt;br&gt;在这里找到自己喜欢的域名-&amp;gt; &lt;a href=&quot;https://wanwang.aliyun.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;域名注册&lt;/a&gt;&lt;br&gt;域名注册流程：&lt;br&gt;&lt;img src=&quot;http://gtms03.alicdn.com/tps/i3/TB15jhlIFXXXXc_XpXXf8PjGVXX-940-96.png&quot; alt=&quot;此处输入图片的描述&quot;&gt;&lt;br&gt;根据自己的需求选择合适的域名及服务，这里就不详细介绍了&lt;br&gt;具体点这里：&lt;a href=&quot;https://help.aliyun.com/knowledge_detail/6555718.html?spm=5176.776555740.0.0.msupFc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;万网域名注册流程&lt;/a&gt;&lt;br&gt;如果从&lt;a href=&quot;https://sg.godaddy.com/zh/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GoDaddy&lt;/a&gt;购买可以点这里：&lt;a href=&quot;http://www.dute.me/how-to-register-domain.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;如何在GoDaddy注册域名&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;2-1、域名解析的配置&quot;&gt;&lt;a href=&quot;#2-1、域名解析的配置&quot; class=&quot;headerlink&quot; title=&quot;2.1、域名解析的配置&quot;&gt;&lt;/a&gt;2.1、域名解析的配置&lt;/h4&gt;&lt;p&gt;直接点进入高级设置：&lt;br&gt;&lt;img src=&quot;http://7xuvbm.com1.z0.glb.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.jpg&quot; alt=&quot;域名解析&quot;&gt;&lt;/p&gt;
+&lt;p&gt;点击添加解析，完成一条配置后保存：&lt;br&gt;&lt;img src=&quot;http://7xuvbm.com1.z0.glb.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4.jpg&quot; alt=&quot;域名解析配置步骤&quot;&gt;&lt;/p&gt;
+&lt;p&gt;下面是我的配置单：&lt;br&gt;&lt;img src=&quot;http://7xuvbm.com1.z0.glb.clouddn.com/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E9%85%8D%E7%BD%AE.jpg&quot; alt=&quot;域名解析配置&quot;&gt;&lt;br&gt;将coding的地址设置为默认，将github的地址设为海外，点击主机记录可以在下面看到@及www等的区别。&lt;/p&gt;
+&lt;h3 id=&quot;3、在coding和github绑定自己的域名&quot;&gt;&lt;a href=&quot;#3、在coding和github绑定自己的域名&quot; class=&quot;headerlink&quot; title=&quot;3、在coding和github绑定自己的域名&quot;&gt;&lt;/a&gt;3、在coding和github绑定自己的域名&lt;/h3&gt;&lt;h4 id=&quot;3-1、github绑定&quot;&gt;&lt;a href=&quot;#3-1、github绑定&quot; class=&quot;headerlink&quot; title=&quot;3.1、github绑定&quot;&gt;&lt;/a&gt;3.1、github绑定&lt;/h4&gt;&lt;hr&gt;
+&lt;p&gt;在Hexo的source文件夹新建一个CNAME文件，文件里面写上你的域名，格式如下（不加www）：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;xiaobin.me
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后按照部署流程，将更改部署到github就可以了，部署完你就会看到在github项目根目录下看到这个CNAME文件，github就会根据这个文件把github page绑定到设置域名，值得注意的是CNAME文件只能写一个域名，写多个的话也只能识别一个。&lt;/p&gt;
+&lt;h4 id=&quot;3-2、coding绑定&quot;&gt;&lt;a href=&quot;#3-2、coding绑定&quot; class=&quot;headerlink&quot; title=&quot;3.2、coding绑定&quot;&gt;&lt;/a&gt;3.2、coding绑定&lt;/h4&gt;&lt;hr&gt;
+&lt;p&gt;coding可以绑定多个域名，并且不用手动添加CNAME文件，直接登录coding设置就好了&lt;br&gt;具体步骤：&lt;br&gt;进入项目-&amp;gt;点击左侧的&lt;code&gt;代码&lt;/code&gt;-&amp;gt;然后点击&lt;code&gt;Pages 服务&lt;/code&gt;-&amp;gt;输入域名-&amp;gt;点击&lt;code&gt;添加域名绑定&lt;/code&gt;&lt;br&gt;&lt;img src=&quot;http://7xuvbm.com1.z0.glb.clouddn.com/Hexo/source/post_img_temp/coding%E7%BB%91%E5%AE%9A%E4%B8%AA%E4%BA%BA%E5%9F%9F%E5%90%8D.jpg&quot; alt=&quot;coding绑定个人域名&quot;&gt;&lt;br&gt;官方文档：&lt;a href=&quot;https://coding.net/help/doc/pages/index.html#section&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Coding Pages 介绍&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;另外，图片、js、css等静态文件可以使用CDN加速，一些公共的js、css可以使用一些公共CDN，比如百度CDN，其余资源可以上传到七牛云来加速。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h3&gt;&lt;p&gt;本篇主要讲一下具体应该怎么配置才能实现hexo静态博客github coding双线部署，通过域名解析（万网 DNSpod）实现国内用户访问
+    
+    </summary>
+    
+    
+      <category term="博客搭建" scheme="http://xiaobin.me/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>github/coding ssh连接 及出现Permission denied(publicKey)问题解决</title>
+    <link href="http://xiaobin.me/2016/05/31/github-coding-ssh/"/>
+    <id>http://xiaobin.me/2016/05/31/github-coding-ssh/</id>
+    <published>2016-05-31T09:30:00.000Z</published>
+    <updated>2016-05-31T09:47:24.472Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;SSH 密钥对可以让您方便的登录到 SSH 服务器，而无需输入密码。由于您无需发送您的密码到网络中，SSH 密钥对被认为是更加安全的方式。再加上使用密码短语 (passphrase) 的使用，安全性会更上一层楼。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用ssh连接相对与https方式更加安全，当然大多数人选择ssh模式除了安全性原因外最主要的还是因为不用每次部署都使用密码，减少操作。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;具体步骤：&lt;/p&gt;
+&lt;h6 id=&quot;1-打开Git-Bash&quot;&gt;&lt;a href=&quot;#1-打开Git-Bash&quot; class=&quot;headerlink&quot; title=&quot;1. 打开Git Bash&quot;&gt;&lt;/a&gt;1. 打开Git Bash&lt;/h6&gt;&lt;p&gt;   没有安装的自行安装，安装后对着屏幕右键就会出现Git Bash选项&lt;/p&gt;
+&lt;h6 id=&quot;2-输入以下命令，邮箱换成自己的邮箱&quot;&gt;&lt;a href=&quot;#2-输入以下命令，邮箱换成自己的邮箱&quot; class=&quot;headerlink&quot; title=&quot;2. 输入以下命令，邮箱换成自己的邮箱&quot;&gt;&lt;/a&gt;2. 输入以下命令，邮箱换成自己的邮箱&lt;/h6&gt;&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;
+# Creates a new ssh key, using the provided email as a label
+# Generating public/private rsa key pair.
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&quot;3-首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填-可以一路enter&quot;&gt;&lt;a href=&quot;#3-首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填-可以一路enter&quot; class=&quot;headerlink&quot; title=&quot;3. 首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填 可以一路enter&quot;&gt;&lt;/a&gt;3. 首先会提示文件保存位置，直接enter选择默认就好，然后会提示设置安全码passphrase，非必填 可以一路enter&lt;/h6&gt;&lt;p&gt;&lt;img src=&quot;http://7xuvbm.com1.z0.glb.clouddn.com/Hexo/source/post_img_temp/generating%20ssh.jpg&quot; alt=&quot;创建新的ssh&quot;&gt;&lt;/p&gt;
+&lt;h6 id=&quot;4-将生成好的ssh添加到github-coding&quot;&gt;&lt;a href=&quot;#4-将生成好的ssh添加到github-coding&quot; class=&quot;headerlink&quot; title=&quot;4. 将生成好的ssh添加到github/coding:&quot;&gt;&lt;/a&gt;4. 将生成好的ssh添加到github/coding:&lt;/h6&gt;&lt;p&gt;   首先找到公钥文件id_rsa.pub，默认目录为&lt;code&gt;C:/Users/[username]/.ssh&lt;/code&gt;，用文本编辑器打开并复制（一般的代码编辑器，IDE都能打开）&lt;br&gt;    然后打开github网站，可以将公钥添加为项目公钥也可以添加为账户公钥&lt;/p&gt;
+&lt;p&gt;添加为项目公钥步骤：进入项目点击Settings-&amp;gt;Deploy keys-&amp;gt;Add Deploy key.&lt;br&gt;具体可以参考:&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating a new SSH key and adding it to the ssh-agent&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://7xuvbm.com1.z0.glb.clouddn.com/Hexo/source/post_img_temp/add-deploy.jpg&quot; alt=&quot;添加github项目部署公钥&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;添加github项目部署公钥&lt;br&gt;title可以随意填，也可以不填&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;添加为账户公钥步骤：点击右上角头像-&amp;gt;Settings-&amp;gt;SSH and GPG keys-&amp;gt;New SSH key-&amp;gt;Add SSH key&lt;br&gt;具体可以参考:&lt;a href=&quot;https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Adding a new SSH key to your GitHub account&lt;/a&gt;&lt;/p&gt;
+&lt;h6 id=&quot;5-最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了：&quot;&gt;&lt;a href=&quot;#5-最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了：&quot; class=&quot;headerlink&quot; title=&quot;5. 最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了：&quot;&gt;&lt;/a&gt;5. 最后在命令行输入以下命令测试，首次建立链接会要求信任主机输入yes就行了：&lt;/h6&gt;&lt;pre&gt;&lt;code&gt;ssh -T git@github.com
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;成功会显示：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Hi username! You&amp;apos;ve successfully authenticated, but GitHub does not provide shell access.
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&quot;6-到这里就要恭喜你了，ssh-key已经成功创建并通过测试&quot;&gt;&lt;a href=&quot;#6-到这里就要恭喜你了，ssh-key已经成功创建并通过测试&quot; class=&quot;headerlink&quot; title=&quot;6. 到这里就要恭喜你了，ssh key已经成功创建并通过测试&quot;&gt;&lt;/a&gt;6. 到这里就要恭喜你了，ssh key已经成功创建并通过测试&lt;/h6&gt;&lt;p&gt;至于coding的设置，你可以直接从第4步开始，使用之前创建好的ssh key，然后使用命令完成测试：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ssh -T git@coding.net
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;具体可以参考&lt;a href=&quot;https://coding.net/help/doc/account/ssh-key.html#section-1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;coding-SSH公钥配置&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;绝大多数情况下使用上面的步骤是没有问题的，命途多舛的我最初在命令行验证的时候出现了这样的错误：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Permission denied(publicKey)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;后来查阅了很多博客文档，可能的原因是之前在本地生成github的ssh key失效了，导致github服务器验证提交请求失败，进而拒绝提交代码操作。后来通过初始化ssh key解决。&lt;br&gt;一样的右键进入Git Bash，键入命令：&lt;code&gt;ssh-keygen&lt;/code&gt;&lt;br&gt;发现已存在id_rsa文件，提示是否将其覆盖，输入y,后面的步骤就是一样的了，在写这篇博客的时候，由于需要操作截图，重新查阅github和coding官方文档，整理出上面简明易懂的操作步骤，并且全部操作了一遍没有再遇到任何问题。&lt;/p&gt;
+&lt;p&gt;如果有人在配置过程中遇到什么问题，欢迎把问题写在评论区，这样后来人也会少踩一些坑。&lt;/p&gt;
+&lt;p&gt;参考文献：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating a new SSH key and adding it to the ssh-agent&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Adding a new SSH key to your GitHub account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://help.github.com/articles/testing-your-ssh-connection/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Testing your SSH connection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://help.github.com/articles/error-permission-denied-publickey/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Error: Permission denied (publickey)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://coding.net/help/doc/account/ssh-key.html#section-1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;coding-SSH公钥配置&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;SSH 密钥对可以让您方便的登录到 SSH 服务器，而无需输入密码。由于您无需发送您的密码到网络中，SSH 密钥对被认为是更加安全的方式。再加上使用密码短语 (passphrase) 的使用，安全性会更上一层楼。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="github" scheme="http://xiaobin.me/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Welcome to Bin Blog</title>
+    <link href="http://xiaobin.me/2016/05/26/hello-blog/"/>
+    <id>http://xiaobin.me/2016/05/26/hello-blog/</id>
+    <published>2016-05-26T15:46:00.000Z</published>
+    <updated>2016-05-30T15:35:11.658Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;“Yeah It’s on. ”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;欢迎访问我的第一篇博客，目前博客搭建在github上，发现访问速度有点慢，着手同步到国内，目前计划同步到coding.&lt;/p&gt;
+&lt;h2 id=&quot;接下来的计划&quot;&gt;&lt;a href=&quot;#接下来的计划&quot; class=&quot;headerlink&quot; title=&quot;接下来的计划&quot;&gt;&lt;/a&gt;接下来的计划&lt;/h2&gt;&lt;h3 id=&quot;1、更换主题&quot;&gt;&lt;a href=&quot;#1、更换主题&quot; class=&quot;headerlink&quot; title=&quot;1、更换主题&quot;&gt;&lt;/a&gt;1、更换主题&lt;/h3&gt;&lt;p&gt;目前默认，打算换个漂亮点的&lt;/p&gt;
+&lt;h3 id=&quot;2、同步到coding&quot;&gt;&lt;a href=&quot;#2、同步到coding&quot; class=&quot;headerlink&quot; title=&quot;2、同步到coding&quot;&gt;&lt;/a&gt;2、同步到coding&lt;/h3&gt;&lt;p&gt;将githubpage同步到coding Page&lt;/p&gt;
+&lt;h3 id=&quot;3、增加功能&quot;&gt;&lt;a href=&quot;#3、增加功能&quot; class=&quot;headerlink&quot; title=&quot;3、增加功能&quot;&gt;&lt;/a&gt;3、增加功能&lt;/h3&gt;&lt;p&gt;增加诸如评论（目前考虑多说插件），分享，rss等&lt;/p&gt;
+&lt;h3 id=&quot;4、申请域名&quot;&gt;&lt;a href=&quot;#4、申请域名&quot; class=&quot;headerlink&quot; title=&quot;4、申请域名&quot;&gt;&lt;/a&gt;4、申请域名&lt;/h3&gt;&lt;p&gt;申请独立域名，备案等等&lt;/p&gt;
+&lt;h3 id=&quot;5、哦-还没有第五&quot;&gt;&lt;a href=&quot;#5、哦-还没有第五&quot; class=&quot;headerlink&quot; title=&quot;5、哦 还没有第五&quot;&gt;&lt;/a&gt;5、哦 还没有第五&lt;/h3&gt;&lt;p&gt;我会在博客里面更新进度&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;关于我？&quot;&gt;&lt;a href=&quot;#关于我？&quot; class=&quot;headerlink&quot; title=&quot;关于我？&quot;&gt;&lt;/a&gt;关于我？&lt;/h2&gt;&lt;p&gt;即将滚出大学的前端技术渣渣一枚，打算空余时间写写东西，做些好玩的，目前打算做一个可能只有6个人使用的蜀黍晚餐管理软件，至于具体的需求策划？sorry， 需求们还在准备毕业答辩。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;“Yeah It’s on. ”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;欢迎访问我的第一篇博客，目前博客搭建在github上，发现访问速度有点慢，着手同步到国内，目前计划同步到coding.&lt;/p&gt;
+&lt;h2 id=&quot;接下来的计划&quot;&gt;&lt;a hre
+    
+    </summary>
+    
+    
+      <category term="起程" scheme="http://xiaobin.me/tags/%E8%B5%B7%E7%A8%8B/"/>
+    
+  </entry>
+  
+</feed>

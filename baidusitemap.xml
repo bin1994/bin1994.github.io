@@ -3,6 +3,24 @@
 
 
     
+    
+  <url>
+    <loc>http://xiaobin.me/2016/05/26/hello-blog/</loc>
+    <lastmod>2016-12-18T14:45:14.067Z</lastmod>
+    <data>
+        <display>
+        <title>Welcome to Bin Blog</title>
+        <pubTime>2016-05-26T15:46:00.000Z</pubTime>
+        
+        <tag>起程</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
   <url>
     <loc>http://xiaobin.me/2016/06/01/github-coding-deploy/</loc>
     <lastmod>2016-06-02T02:05:46.864Z</lastmod>
@@ -36,24 +54,6 @@
     </data>
     </url>
 
-    
-  <url>
-    <loc>http://xiaobin.me/2016/05/26/hello-blog/</loc>
-    <lastmod>2016-05-30T15:35:11.658Z</lastmod>
-    <data>
-        <display>
-        <title>Welcome to Bin Blog</title>
-        <pubTime>2016-05-26T15:46:00.000Z</pubTime>
-        
-        <tag>起程</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
     
     
 </urlset>

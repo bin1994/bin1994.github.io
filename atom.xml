@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://xiaobin.me/"/>
-  <updated>2016-06-02T02:05:46.864Z</updated>
+  <updated>2016-06-02T02:05:48.000Z</updated>
   <id>http://xiaobin.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://xiaobin.me/2016/06/01/github-coding-deploy/"/>
     <id>http://xiaobin.me/2016/06/01/github-coding-deploy/</id>
     <published>2016-06-01T04:00:00.000Z</published>
-    <updated>2016-06-02T02:05:46.864Z</updated>
+    <updated>2016-06-02T02:05:48.000Z</updated>
     
     <content type="html">&lt;h3 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h3&gt;&lt;p&gt;本篇主要讲一下具体应该怎么配置才能实现hexo静态博客github coding双线部署，通过域名解析（万网 DNSpod）实现国内用户访问coding服务器，国外用户访问github服务器。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -65,7 +65,7 @@
     <link href="http://xiaobin.me/2016/05/31/github-coding-ssh/"/>
     <id>http://xiaobin.me/2016/05/31/github-coding-ssh/</id>
     <published>2016-05-31T09:30:00.000Z</published>
-    <updated>2016-05-31T09:47:24.472Z</updated>
+    <updated>2016-05-31T09:47:26.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;SSH 密钥对可以让您方便的登录到 SSH 服务器，而无需输入密码。由于您无需发送您的密码到网络中，SSH 密钥对被认为是更加安全的方式。再加上使用密码短语 (passphrase) 的使用，安全性会更上一层楼。&lt;/p&gt;
@@ -123,19 +123,13 @@
     <link href="http://xiaobin.me/2016/05/26/hello-blog/"/>
     <id>http://xiaobin.me/2016/05/26/hello-blog/</id>
     <published>2016-05-26T15:46:00.000Z</published>
-    <updated>2016-12-18T14:45:14.067Z</updated>
+    <updated>2017-05-18T07:10:32.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;“Yeah It’s on. ”&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;欢迎访问我的第一篇博客，目前博客搭建在github上，发现访问速度有点慢，着手同步到国内，目前计划同步到coding.&lt;/p&gt;
-&lt;h2 id=&quot;接下来的计划&quot;&gt;&lt;a href=&quot;#接下来的计划&quot; class=&quot;headerlink&quot; title=&quot;接下来的计划&quot;&gt;&lt;/a&gt;接下来的计划&lt;/h2&gt;&lt;h3 id=&quot;1、更换主题&quot;&gt;&lt;a href=&quot;#1、更换主题&quot; class=&quot;headerlink&quot; title=&quot;1、更换主题&quot;&gt;&lt;/a&gt;1、更换主题&lt;/h3&gt;&lt;p&gt;目前默认，打算换个漂亮点的&lt;/p&gt;
-&lt;h3 id=&quot;2、同步到coding&quot;&gt;&lt;a href=&quot;#2、同步到coding&quot; class=&quot;headerlink&quot; title=&quot;2、同步到coding&quot;&gt;&lt;/a&gt;2、同步到coding&lt;/h3&gt;&lt;p&gt;将githubpage同步到coding Page&lt;/p&gt;
-&lt;h3 id=&quot;3、增加功能&quot;&gt;&lt;a href=&quot;#3、增加功能&quot; class=&quot;headerlink&quot; title=&quot;3、增加功能&quot;&gt;&lt;/a&gt;3、增加功能&lt;/h3&gt;&lt;p&gt;增加诸如评论（目前考虑多说插件），分享，rss等&lt;/p&gt;
-&lt;h3 id=&quot;4、申请域名&quot;&gt;&lt;a href=&quot;#4、申请域名&quot; class=&quot;headerlink&quot; title=&quot;4、申请域名&quot;&gt;&lt;/a&gt;4、申请域名&lt;/h3&gt;&lt;p&gt;申请独立域名，备案等等&lt;/p&gt;
-&lt;h3 id=&quot;5、哦-还没有第五&quot;&gt;&lt;a href=&quot;#5、哦-还没有第五&quot; class=&quot;headerlink&quot; title=&quot;5、哦 还没有第五&quot;&gt;&lt;/a&gt;5、哦 还没有第五&lt;/h3&gt;&lt;p&gt;我会在博客里面更新进度&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;关于我？&quot;&gt;&lt;a href=&quot;#关于我？&quot; class=&quot;headerlink&quot; title=&quot;关于我？&quot;&gt;&lt;/a&gt;关于我？&lt;/h2&gt;&lt;p&gt;一个刚出校园的前端初行者。热爱技术，追求更高效的工作。&lt;/p&gt;
+&lt;p&gt;Hello world and welcome.&lt;/p&gt;
+&lt;h2 id=&quot;关于我？&quot;&gt;&lt;a href=&quot;#关于我？&quot; class=&quot;headerlink&quot; title=&quot;关于我？&quot;&gt;&lt;/a&gt;关于我？&lt;/h2&gt;&lt;p&gt;一个爱折腾的大前端学者。热爱技术，追求更高效的工作。&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -143,8 +137,8 @@
       &lt;blockquote&gt;
 &lt;p&gt;“Yeah It’s on. ”&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;欢迎访问我的第一篇博客，目前博客搭建在github上，发现访问速度有点慢，着手同步到国内，目前计划同步到coding.&lt;/p&gt;
-&lt;h2 id=&quot;接下来的计划&quot;&gt;&lt;a hre
+&lt;p&gt;Hello world and welcome.&lt;/p&gt;
+&lt;h2 id=&quot;关于我？&quot;&gt;&lt;a href=&quot;#关于我？&quot; class=&quot;headerlink&quot; title=&quot;关
     
     </summary>
     

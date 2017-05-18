@@ -6,7 +6,7 @@
     
   <url>
     <loc>http://xiaobin.me/2016/05/26/hello-blog/</loc>
-    <lastmod>2016-12-18T14:45:14.067Z</lastmod>
+    <lastmod>2017-05-18T07:10:32.000Z</lastmod>
     <data>
         <display>
         <title>Welcome to Bin Blog</title>
@@ -23,7 +23,7 @@
     
   <url>
     <loc>http://xiaobin.me/2016/06/01/github-coding-deploy/</loc>
-    <lastmod>2016-06-02T02:05:46.864Z</lastmod>
+    <lastmod>2016-06-02T02:05:48.000Z</lastmod>
     <data>
         <display>
         <title>将hexo博客到同时部署到github和coding 实现全球快速访问</title>
@@ -40,7 +40,7 @@
     
   <url>
     <loc>http://xiaobin.me/2016/05/31/github-coding-ssh/</loc>
-    <lastmod>2016-05-31T09:47:24.472Z</lastmod>
+    <lastmod>2016-05-31T09:47:26.000Z</lastmod>
     <data>
         <display>
         <title>github/coding ssh连接 及出现Permission denied(publicKey)问题解决</title>

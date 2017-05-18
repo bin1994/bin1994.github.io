@@ -65,7 +65,7 @@
     <link href="http://xiaobin.me/2016/05/31/github-coding-ssh/"/>
     <id>http://xiaobin.me/2016/05/31/github-coding-ssh/</id>
     <published>2016-05-31T09:30:00.000Z</published>
-    <updated>2016-05-31T09:47:26.000Z</updated>
+    <updated>2017-05-18T07:21:30.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;SSH 密钥对可以让您方便的登录到 SSH 服务器，而无需输入密码。由于您无需发送您的密码到网络中，SSH 密钥对被认为是更加安全的方式。再加上使用密码短语 (passphrase) 的使用，安全性会更上一层楼。&lt;/p&gt;
@@ -88,7 +88,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;成功会显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Hi username! You&amp;apos;ve successfully authenticated, but GitHub does not provide shell access.
 &lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&quot;6-到这里就要恭喜你了，ssh-key已经成功创建并通过测试&quot;&gt;&lt;a href=&quot;#6-到这里就要恭喜你了，ssh-key已经成功创建并通过测试&quot; class=&quot;headerlink&quot; title=&quot;6. 到这里就要恭喜你了，ssh key已经成功创建并通过测试&quot;&gt;&lt;/a&gt;6. 到这里就要恭喜你了，ssh key已经成功创建并通过测试&lt;/h6&gt;&lt;p&gt;至于coding的设置，你可以直接从第4步开始，使用之前创建好的ssh key，然后使用命令完成测试：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh -T git@coding.net
+&lt;pre&gt;&lt;code&gt;ssh -T git@git.coding.net
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;具体可以参考&lt;a href=&quot;https://coding.net/help/doc/account/ssh-key.html#section-1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;coding-SSH公钥配置&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;绝大多数情况下使用上面的步骤是没有问题的，命途多舛的我最初在命令行验证的时候出现了这样的错误：&lt;/p&gt;

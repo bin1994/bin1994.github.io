@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiaobin.me/2016/05/31/github-coding-ssh/</loc>
+    
+    <lastmod>2017-05-18T07:21:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xiaobin.me/about/index.html</loc>
     
     <lastmod>2017-05-18T07:10:46.000Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://xiaobin.me/2016/06/01/github-coding-deploy/</loc>
     
     <lastmod>2016-06-02T02:05:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xiaobin.me/2016/05/31/github-coding-ssh/</loc>
-    
-    <lastmod>2016-05-31T09:47:26.000Z</lastmod>
     
   </url>
   
